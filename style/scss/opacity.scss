@@ -1,0 +1,42 @@
+@import "variables";
+
+.opacity {
+  &--1 {
+    opacity: 1 !important;
+  }
+  &--hinted {
+    opacity: 0.8 !important;
+  }
+  &--muted {
+    opacity: 0.6 !important;
+  }
+  &--silenced {
+    opacity: 0.3 !important;
+  }
+  &--0 {
+    opacity: 0 !important;
+  }
+}
+
+// Responsive
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+    // Opacity
+    .opacity#{$infix}--1 {
+      opacity: 1 !important;
+    }
+    .opacity#{$infix}--hinted {
+      opacity: 0.8 !important;
+    }
+    .opacity#{$infix}--muted {
+      opacity: 0.6 !important;
+    }
+    .opacity#{$infix}--silenced {
+      opacity: 0.3 !important;
+    }
+    .opacity#{$infix}--0 {
+      opacity: 0 !important;
+    }
+  }
+}

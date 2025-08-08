@@ -1,0 +1,36 @@
+.accordion__item {
+  background: var(--color-dark-100);
+  border-radius: var(--scale-2);
+  cursor: pointer;
+  text-align: unset;
+  color: var(--color-dark);
+  -webkit-transition: background var(--duration-fast) ease-out;
+  -moz-transition: background var(--duration-fast) ease-out;
+  -o-transition: background var(--duration-fast) ease-out;
+  transition: background var(--duration-fast) ease-out;
+}
+.accordion__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding-right: var(--mc-scale-6);
+  border-radius: var(--scale-2);
+  cursor: pointer;
+  border: none;
+  user-select: none;
+}
+.accordion__icon {
+  flex-shrink: 0;
+  transform: rotateX(0deg);
+  transition: transform 200ms ease;
+}
+.accordion__button[aria-expanded=true] .accordion__icon, .accordion__button[aria-selected=true] .accordion__icon {
+  transform: rotateX(180deg);
+}
+.accordion__button[aria-expanded=false]:hover, .accordion__button[aria-selected=false]:hover {
+  background: var(--color-dark-200);
+}
+
+/*# sourceMappingURL=accordion.css.map */

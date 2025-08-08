@@ -1,0 +1,17 @@
+.overflow {
+	&--hidden {
+		overflow: hidden;
+	}
+
+	&--auto {
+		overflow: auto;
+	}
+
+	&--scroll {
+		overflow: scroll;
+	}
+
+	&--visible {
+		overflow: visible;
+	}
+}

@@ -1,0 +1,55 @@
+@import "variables";
+
+svg {
+    vertical-align: middle;
+}
+
+.icon {
+    width: 2em;
+    height: 2em;
+
+    &--md {
+        width: var(--scale-5);
+        height: var(--scale-5);
+    }
+
+    &--sm {
+        width: var(--scale-4);
+        height: var(--scale-4);
+    }
+
+    &--lg {
+        width: var(--scale-6);
+        height: var(--scale-6);
+    }
+
+    @for $i from $scale-begin through $scale-end {
+        &--scale-#{$i} {
+            width: var(--scale-#{$i});
+            height: var(--scale-#{$i});
+        }
+    }
+
+    &--rotate-90 {
+        transform: rotate(90deg);
+    }
+
+    &--rotate-180 {
+        transform: rotate(180deg);
+    }
+
+    &--rotate-270 {
+        transform: rotate(270deg);
+    }
+
+    &--circled {
+        padding: 0.25em;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+    }
+
+    // Color modification
+    &--transparent {
+        fill: none;
+    }
+}

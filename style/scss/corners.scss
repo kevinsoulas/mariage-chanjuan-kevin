@@ -1,0 +1,83 @@
+@import "variables";
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+
+    .corners#{$infix} {
+      &-xs {
+        border-radius: var(--scale-1);
+        overflow: hidden;
+      }
+
+      &-sm {
+        border-radius: var(--scale-2);
+        overflow: hidden;
+      }
+
+      &-md {
+        border-radius: var(--scale-3);
+        overflow: hidden;
+      }
+
+      &-lg {
+        border-radius: var(--scale-4);
+        overflow: hidden;
+      }
+
+      &-xl {
+        border-radius: var(--scale-6);
+        overflow: hidden;
+      }
+
+      &-full {
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+
+      $positions: "top-left", "top-right", "bottom-left", "bottom-right";
+
+      @each $position in $positions {
+        &-#{$position}-xs {
+          border-#{$position}-radius: var(--scale-1);
+          overflow: hidden;
+        }
+
+        &-#{$position}-sm {
+          border-#{$position}-radius: var(--scale-2);
+          overflow: hidden;
+        }
+
+        &-#{$position}-md {
+          border-#{$position}-radius: var(--scale-3);
+          overflow: hidden;
+        }
+
+        &-#{$position}-lg {
+          border-#{$position}-radius: var(--scale-4);
+          overflow: hidden;
+        }
+
+        &-#{$position}-xl {
+          border-#{$position}-radius: var(--corners--xl);
+          overflow: hidden;
+        }
+
+        &-#{$position}-full {
+          border-#{$position}-radius: 9999px;
+          overflow: hidden;
+        }
+
+        &-#{$position}-none {
+          border-#{$position}-radius: 0;
+        }
+      }
+
+      &--circle {
+        border-radius: 50%;
+        isolation: isolate;
+        overflow: hidden;
+      }
+    }
+  }
+}

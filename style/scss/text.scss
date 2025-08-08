@@ -1,0 +1,276 @@
+@import "variables";
+
+.text {
+  // Brand
+  &-brand {
+    font-family: var(--font-name-brand);
+    font-weight: 400;
+  }
+
+  &-button-sm {
+    font-size: calc(var(--scale-3-5) - 1px);
+    line-height: calc(var(--scale-3-5) + var(--scale-1));
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-family: var(--font-default);
+    font-weight: 500;
+  }
+
+  &-editable {
+    cursor: text;
+    padding: 0;
+    border: 1px dashed hsl(var(--input));
+    border-radius: 0;
+    outline: none;
+    &:focus {
+      border-color: hsl(var(--forground));
+    }
+    &::placeholder {
+      color: hsl(var(--muted-foreground)) !important;
+      opacity: 1;
+    }
+  }
+
+  // Transformation
+  &--muted {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  &--primary {
+    color: hsl(var(--primary)) !important;
+  }
+  &--always-light {
+    color: hsl(var(--always-light)) !important;
+  }
+  &--uppercase {
+    letter-spacing: 0.06em;
+    text-transform: uppercase !important;
+  }
+  &--lowercase {
+    text-transform: lowercase !important;
+  }
+  &--capitalize {
+    text-transform: capitalize !important;
+  }
+  &--sentence {
+    &::first-letter {
+      text-transform: uppercase !important;
+    }
+  }
+  &--sup {
+    display: inline-block;
+    transform: translate(15%, 5%);
+    vertical-align: super;
+    font-size: 50%;
+    letter-spacing: 0.2em;
+  }
+  &--ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  // Weight / opacity
+  &--semibold {
+    font-weight: 500 !important;
+  }
+  &--bold {
+    font-weight: 600 !important;
+  }
+  &--strike {
+    text-decoration: line-through !important;
+  }
+  @at-root strong,
+    b {
+    font-weight: 600 !important;
+  }
+  @at-root em {
+    font-style: italic !important;
+  }
+  &--italic {
+    font-style: italic !important;
+  }
+  @at-root i {
+    font-style: italic !important;
+  }
+  &--normal {
+    font-weight: 400 !important;
+  }
+  &--light {
+    font-weight: 300 !important;
+  }
+  &--underline {
+    text-decoration: underline !important;
+  }
+  @at-root u {
+    text-decoration: underline !important;
+  }
+
+  // Links
+  &--link,
+  &--link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  // Misc
+  &--monospace {
+    font-family: var(--font-name-mono) !important;
+  }
+  &--nowrap {
+    white-space: nowrap;
+  }
+  &--pre-wrap {
+    white-space: pre-wrap;
+  }
+  &--balance {
+    text-wrap: balance;
+  }
+  &--wrap {
+    white-space: wrap;
+  }
+  // Cursor
+  &--pointer {
+    cursor: pointer;
+  }
+}
+
+// Responsive
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+    // Size
+    .text#{$infix}-xxs {
+      font-size: calc(var(--scale-2) + var(--scale-1));
+      line-height: calc(var(--scale-3) + var(--scale-1));
+    }
+    .text#{$infix}-xs {
+      font-size: calc(var(--scale-3) + var(--scale-0-5));
+      line-height: calc(var(--scale-3-5) + var(--scale-1));
+    }
+    .text#{$infix}-sm {
+      font-size: calc(var(--scale-3-5));
+      line-height: calc(var(--scale-3-5) + var(--scale-1));
+    }
+    .text#{$infix}-base {
+      font-size: calc(var(--scale-4) - var(--scale-0-5));
+      line-height: calc(var(--scale-6));
+    }
+    .text#{$infix}-article {
+      font-size: calc(var(--scale-4) + var(--scale-0-5));
+      line-height: calc(var(--scale-7) + var(--scale-1));
+    }
+    .text#{$infix}-lg {
+      font-size: calc(var(--scale-5) - var(--scale-0-5));
+      line-height: calc(var(--scale-6));
+    }
+    .text#{$infix}-xl {
+      font-size: calc(var(--scale-7) - var(--scale-0-5));
+      line-height: calc(var(--scale-7) + var(--scale-1));
+    }
+    .text#{$infix}-2xl {
+      font-size: var(--scale-8);
+      line-height: calc(var(--scale-8) + var(--scale-1));
+    }
+    .text#{$infix}-3xl {
+      font-size: var(--scale-9);
+      line-height: calc(var(--scale-9) + var(--scale-1));
+    }
+    .text#{$infix}-4xl {
+      font-size: var(--scale-10);
+      line-height: calc(var(--scale-10) + var(--scale-1));
+    }
+    .text#{$infix}-5xl {
+      font-size: var(--scale-11);
+      line-height: calc(var(--scale-11) + var(--scale-1));
+    }
+    .text#{$infix}-6xl {
+      font-size: var(--scale-12);
+      line-height: calc(var(--scale-12) + var(--scale-1));
+    }
+    .text#{$infix}-7xl {
+      font-size: var(--scale-13);
+      line-height: calc(var(--scale-13) + var(--scale-1));
+    }
+    .text#{$infix}-8xl {
+      font-size: var(--scale-14);
+      line-height: calc(var(--scale-14) + var(--scale-1));
+    }
+    .text#{$infix}-9xl {
+      font-size: var(--scale-15);
+      line-height: calc(var(--scale-15) + var(--scale-1));
+    }
+    // Alignement
+    .text#{$infix}--left {
+      text-align: left !important;
+    }
+    .text#{$infix}--right {
+      text-align: right !important;
+    }
+    .text#{$infix}--center {
+      text-align: center !important;
+    }
+    .text#{$infix}--justify {
+      text-align: justify !important;
+    }
+    // Clamp
+    .text#{$infix}-clamp-none {
+      display: -webkit-box;
+      -webkit-line-clamp: none;
+      line-clamp: none;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .text#{$infix}-clamp-1 {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .text#{$infix}-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .text#{$infix}-clamp-5 {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.text-link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-fast) var(--ease-default);
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}

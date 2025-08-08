@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Geist";
+  src: url("../..//style/font/Geist/statics-ttf/Geist-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeistMono";
+  src: url("../..//style/font/GeistMono/statics-ttf/GeistMono-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cherolina";
+  src: url("../..//style/font/Cherolina/statics-ttf/Cherolina-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LavishlyYours";
+  src: url("../..//style/font/LavishlyYours/statics-ttf/LavishlyYours-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../..//style/font/Cormorant/statics-ttf/Cormorant-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=fonts.css.map */

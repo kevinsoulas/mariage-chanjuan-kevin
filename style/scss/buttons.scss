@@ -1,0 +1,280 @@
+@import "variables";
+@import "animations";
+
+.button {
+  font-size: calc(var(--scale-4) - var(--scale-0-5) - 1px);
+  line-height: calc(var(--scale-6));
+  padding: var(--scale-2) var(--scale-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-radius: var(--scale-1);
+  border-radius: 9999px;
+  font-family: var(--font-default);
+  font-weight: 500;
+  box-shadow: var(--shadow-button);
+  -webkit-transition: background var(--duration-fast) ease-out,
+    border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  -moz-transition: background var(--duration-fast) ease-out,
+    border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  -o-transition: background var(--duration-fast) ease-out,
+    border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  transition: background var(--duration-fast) ease-out,
+    border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+
+  .sr-only {
+    text-transform: none;
+  }
+
+  &.disabled,
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  &[aria-disabled="true"] {
+    // Override reakit pointer-events: none to allow hover over a disabled but still focusable button
+    pointer-events: initial !important;
+  }
+
+  &:not(:disabled):not(.disabled):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: var(--color-element-focus-outline) solid 2px;
+    outline-offset: 2px;
+  }
+
+  // Size Variations
+  &-xs {
+    font-size: calc(var(--scale-3) + var(--scale-0-5) - 1px);
+    line-height: calc(var(--scale-3-5) + var(--scale-1));
+    padding: calc(var(--scale-1) - 1px) var(--scale-2);
+  }
+
+  &-sm {
+    font-size: calc(var(--scale-3-5) - 1px);
+    line-height: calc(var(--scale-3-5) + var(--scale-1));
+    padding: var(--scale-2) var(--scale-3-5);
+  }
+
+  &-base {
+    font-size: calc(var(--scale-4) - var(--scale-0-5) - 1px);
+    line-height: calc(var(--scale-6));
+    padding: var(--scale-2) var(--scale-4);
+  }
+
+  &-lg {
+    font-size: calc(var(--scale-5) - var(--scale-0-5) - 1px);
+    line-height: calc(var(--scale-6));
+    padding: var(--scale-3-5) var(--scale-6);
+  }
+
+  // Text Alignment
+  &--left {
+    justify-content: left;
+  }
+
+  &--right {
+    justify-content: right;
+  }
+
+  // Display Variations
+  &--full-width {
+    width: 100%;
+  }
+
+  &--with-icon {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+
+    span {
+      margin-left: 1.3rem;
+    }
+  }
+
+  .button__loader {
+    display: none;
+  }
+
+  &--loading {
+    position: relative;
+    pointer-events: none;
+
+    .button__content {
+      opacity: 0;
+      display: inherit;
+    }
+
+    .button__loader {
+      position: absolute;
+      display: block;
+      @include spin;
+    }
+  }
+
+  // Kind Variations
+  &--outline {
+    color: hsl(var(--secondary-foreground));
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--input), 1);
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--input), 0.8);
+      }
+    }
+  }
+
+  &--primary {
+    color: hsl(var(--primary-foreground));
+    background: hsl(var(--primary), 1);
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--primary), 0.9);
+      }
+    }
+  }
+
+  &--secondary {
+    color: hsl(var(--secondary-foreground));
+    background: hsl(var(--secondary), 1);
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--secondary), 0.8);
+      }
+    }
+  }
+
+  &--ghost {
+    color: hsl(var(--secondary-foreground));
+    background: hsl(var(--background), 1);
+    box-shadow: none;
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--secondary), 0.8);
+      }
+    }
+  }
+
+  &--success {
+    color: hsl(var(--success-foreground));
+    background: hsl(var(--success), 1);
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--success), 0.9);
+      }
+    }
+  }
+
+  &--destructive {
+    color: hsl(var(--destructive-foreground));
+    background: hsl(var(--destructive), 1);
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--destructive), 0.9);
+      }
+    }
+  }
+
+  &--link {
+    background: transparent;
+    padding: 0;
+    color: hsl(var(--foreground));
+    border-radius: 0;
+    // border-bottom: 1.5px solid transparent;
+    box-shadow: none;
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        color: hsl(var(--muted-foreground));
+        // border-bottom: 1.5px solid hsl(var(--muted-foreground));
+      }
+    }
+  }
+
+  &--symmetrical {
+    padding: var(--scale-3);
+  }
+
+  &--control {
+    background: var(--color-dark-700);
+    color: var(--color-light);
+    width: var(--scale-9);
+    height: var(--scale-9);
+    border-radius: var(--scale-9);
+    padding: 0;
+    overflow: hidden;
+
+    &.button--sm {
+      width: var(--scale-8);
+      height: var(--scale-8);
+    }
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: var(--color-dark);
+      }
+    }
+  }
+
+  &--switch {
+    width: 48px;
+    height: 28px;
+    border-radius: 9999px;
+    background: hsl(var(--background));
+    overflow: hidden;
+    border: 1px solid hsl(var(--input), 1);
+    span {
+      position: absolute;
+      left: 0;
+      width: 21px;
+      height: 21px;
+      border-radius: 9999px;
+      background: hsl(var(--primary), 1);
+      transition: transform 0.2s ease-in-out;
+      transform: translateX(4px);
+    }
+    &[data-state="checked"] {
+      background: hsl(var(--primary), 1);
+      span {
+        transform: translateX(22px);
+        background: hsl(var(--background));
+      }
+    }
+  }
+
+  &--area {
+    color: hsl(var(--foreground));
+    background: hsl(var(--background), 1);
+    box-shadow: none;
+    border: 1px dashed hsl(var(--input), 1);
+    border-radius: var(--scale-1);
+    width: 100%;
+
+    &:not(:disabled):not(.disabled) {
+      &:hover,
+      &:active {
+        background: hsl(var(--secondary), 0.8);
+      }
+    }
+  }
+}

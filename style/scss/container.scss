@@ -1,0 +1,24 @@
+@import "variables";
+
+@each $size, $breakpoint in $grid-breakpoints {
+  .container-#{$size} {
+    max-width: map-get($grid-container-max-width, $size);
+    margin: auto;
+    padding: 0 var(--scale-6);
+
+    @media (min-width: $bp-md) {
+      padding: 0 var(--scale-8);
+    }
+  }
+}
+
+.container--max {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  padding: 0 var(--scale-6);
+
+  @media (min-width: $bp-md) {
+    padding: 0 var(--scale-8);
+  }
+}

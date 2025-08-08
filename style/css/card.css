@@ -1,0 +1,6 @@
+.card {
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--scale-3);
+}
+
+/*# sourceMappingURL=card.css.map */

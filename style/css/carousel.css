@@ -1,0 +1,81 @@
+.carousel {
+  position: relative;
+}
+.carousel .content {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-stop: normal;
+  scroll-snap-type: x mandatory;
+}
+.carousel .content::-webkit-scrollbar {
+  display: none;
+}
+.carousel .content > * {
+  flex-shrink: 0;
+}
+.carousel .content--snap-start > * {
+  scroll-snap-align: start;
+}
+.carousel .content--snap-center > * {
+  scroll-snap-align: center;
+}
+.carousel .content--snap-end > * {
+  scroll-snap-align: end;
+}
+.carousel .content.overflow {
+  --edge: rgba(0, 0, 0, 0.2);
+  --inner: rgba(0, 0, 0, 1);
+  --feather: calc(var(--mc-scale-12) * 2);
+  margin: 0 var(--mc-overflow-outer-margin);
+  padding: 0 var(--mc-overflow-inner-padding);
+  scroll-padding: 0 var(--mc-overflow-inner-padding);
+  mask-image: linear-gradient(to right, var(--edge) -100%, var(--edge) calc(var(--mc-overflow-inner-padding) - var(--feather)), var(--inner) var(--mc-overflow-inner-padding), var(--inner) calc(100% - var(--mc-overflow-inner-padding)), var(--edge) calc(100% - var(--mc-overflow-inner-padding) + var(--feather)), var(--edge) 100%);
+}
+.carousel .arrow {
+  position: absolute;
+  opacity: 1;
+  transition: opacity var(--duration-fast) ease;
+  top: 50%;
+  z-index: 1;
+}
+.carousel .arrow--prev {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.carousel .arrow--next {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.carousel .arrow--disabled {
+  opacity: 0.4;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--scale-2);
+}
+.pages .page {
+  display: inline-block;
+  margin: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--color-dark-200);
+  border-radius: 6px;
+  outline: 0;
+  transition: background var(--duration-fast) ease, width var(--duration-faster) ease-out;
+  pointer-events: none;
+}
+.pages .page:focus {
+  background: var(--color-dark);
+}
+.pages .page--active {
+  background: var(--color-dark);
+  width: 20px;
+}
+
+/*# sourceMappingURL=carousel.css.map */

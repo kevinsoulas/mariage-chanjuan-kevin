@@ -1,0 +1,54 @@
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: calc(var(--scale-3-5));
+  line-height: calc(var(--scale-3-5) + var(--scale-1));
+  overflow: visible;
+
+  td {
+    padding: var(--scale-2) 0px;
+  }
+
+  &.table-list {
+    tr {
+      border-bottom: 1px solid hsl(var(--input), 1);
+      &:hover {
+        background-color: hsl(var(--background-darker), 1);
+      }
+    }
+    td,
+    th {
+      text-align: left;
+      padding: var(--scale-2) var(--scale-3);
+      white-space: nowrap; // Prevents wrapping, so cell is only as wide as its content
+      // &:first-child {
+      //   padding-left: 0;
+      // }
+      &:last-child {
+        text-align: right;
+        white-space: normal; // Allow wrapping if needed
+        width: 100%; // Expands to fill remaining space
+      }
+    }
+  }
+}
+
+.dropdown-toggle {
+  pointer-events: all;
+  position: relative;
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 2px);
+    right: 0;
+    z-index: 1000;
+    text-align: right;
+    background-color: hsl(var(--background));
+  }
+}

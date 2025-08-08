@@ -1,0 +1,40 @@
+.bg {
+  color: transparent;
+}
+.bg-background {
+  background-color: hsl(var(--background));
+}
+.bg-background-lighter {
+  background-color: hsl(var(--background-lighter));
+}
+.bg-background-darker {
+  background-color: hsl(var(--background-darker));
+}
+.bg-background-grey {
+  background-color: hsl(var(--background-grey));
+}
+.bg-background-alt {
+  background-color: hsl(var(--background-alt));
+}
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+.bg-secondary {
+  background-color: hsl(var(--secondary));
+}
+.bg-success {
+  background-color: hsl(var(--success));
+}
+.bg-destructive {
+  background-color: hsl(var(--destructive));
+}
+
+.bg-hover-background-darker:hover {
+  background-color: hsl(var(--background-darker));
+}
+
+.shadow {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*# sourceMappingURL=background.css.map */

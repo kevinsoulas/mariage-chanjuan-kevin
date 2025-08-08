@@ -1,0 +1,52 @@
+body,
+textarea {
+  font-family: var(--font-name);
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: calc(var(--scale-4) - var(--scale-0-5));
+  line-height: calc(var(--scale-6));
+  font-weight: 400;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+* {
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+a.underline {
+  color: hsl(var(--foreground)) !important;
+}
+a.underline:hover {
+  text-decoration-line: underline;
+  text-underline-offset: var(--scale-1);
+}
+
+.dark {
+  color: hsl(var(--foreground));
+}
+
+.no-transition * {
+  transition: none !important;
+}
+
+.box-content {
+  box-sizing: content-box;
+}
+
+::selection {
+  background-color: hsl(var(--foreground));
+  color: hsl(var(--background));
+}
+
+/*# sourceMappingURL=base.css.map */

@@ -1,0 +1,25 @@
+.img-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background-color: var(--color-background-skeleton);
+	overflow: hidden;
+	height: 100%;
+
+	img {
+		top: 0;
+		left: 0;
+		position: absolute;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.img-wrapper__image {
+	position: absolute;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}

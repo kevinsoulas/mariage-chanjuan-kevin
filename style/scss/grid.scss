@@ -1,0 +1,13 @@
+@import "variables";
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+        $infix: if($breakpoint=="xs", "", "-#{$breakpoint}");
+
+        @for $i from 1 through 12 {
+            .grid#{$infix}-column-#{$i} {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        }
+    }
+}

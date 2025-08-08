@@ -1,0 +1,68 @@
+@import "variables";
+
+$positions: static, relative, absolute, fixed, sticky;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+
+    @each $position in $positions {
+      .position#{$infix}-#{$position} {
+        position: $position !important;
+      }
+    }
+  }
+}
+
+$sides: top, right, bottom, left;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+    @each $side in $sides {
+      .#{$side}#{$infix}-auto {
+        #{$side}: auto;
+      }
+    }
+    @for $i from $scale-begin through $scale-end {
+      @each $side in $sides {
+        .#{$side}#{$infix}-#{$i} {
+          #{$side}: var(--scale-#{$i});
+        }
+      }
+    }
+  }
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+.inset {
+  &-0 {
+    inset: 0;
+  }
+}
+.inset-x {
+  &-0 {
+    left: 0;
+    right: 0;
+  }
+}
+.inset-y {
+  &-0 {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.z {
+  @for $i from $scale-begin through $scale-end {
+    &-#{$i} {
+      z-index: #{$i};
+    }
+  }
+}

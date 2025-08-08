@@ -1,0 +1,24 @@
+// Border Direction
+.border {
+  border: 1px solid hsl(var(--input));
+}
+.border-t {
+  border-top: 1px solid hsl(var(--input));
+}
+.border-r {
+  border-right: 1px solid hsl(var(--input));
+}
+.border-b {
+  border-bottom: 1px solid hsl(var(--input));
+}
+.border-l {
+  border-left: 1px solid hsl(var(--input));
+}
+
+// Border Width
+.border-0 {
+  border-width: 0;
+}
+.border-2 {
+  border-width: 2px;
+}

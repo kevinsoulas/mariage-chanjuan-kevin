@@ -1,0 +1,228 @@
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes loading-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.width-transition {
+  transition: width 300ms ease-in-out;
+}
+
+.button {
+  font-size: calc(var(--scale-4) - var(--scale-0-5) - 1px);
+  line-height: calc(var(--scale-6));
+  padding: var(--scale-2) var(--scale-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-radius: var(--scale-1);
+  border-radius: 9999px;
+  font-family: var(--font-default);
+  font-weight: 500;
+  box-shadow: var(--shadow-button);
+  -webkit-transition: background var(--duration-fast) ease-out, border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  -moz-transition: background var(--duration-fast) ease-out, border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  -o-transition: background var(--duration-fast) ease-out, border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+  transition: background var(--duration-fast) ease-out, border var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+}
+.button .sr-only {
+  text-transform: none;
+}
+.button.disabled, .button:disabled, .button[aria-disabled=true] {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+.button[aria-disabled=true] {
+  pointer-events: initial !important;
+}
+.button:not(:disabled):not(.disabled):not([aria-disabled=true]) {
+  cursor: pointer;
+}
+.button:focus-visible {
+  outline: var(--color-element-focus-outline) solid 2px;
+  outline-offset: 2px;
+}
+.button-xs {
+  font-size: calc(var(--scale-3) + var(--scale-0-5) - 1px);
+  line-height: calc(var(--scale-3-5) + var(--scale-1));
+  padding: calc(var(--scale-1) - 1px) var(--scale-2);
+}
+.button-sm {
+  font-size: calc(var(--scale-3-5) - 1px);
+  line-height: calc(var(--scale-3-5) + var(--scale-1));
+  padding: var(--scale-2) var(--scale-3-5);
+}
+.button-base {
+  font-size: calc(var(--scale-4) - var(--scale-0-5) - 1px);
+  line-height: calc(var(--scale-6));
+  padding: var(--scale-2) var(--scale-4);
+}
+.button-lg {
+  font-size: calc(var(--scale-5) - var(--scale-0-5) - 1px);
+  line-height: calc(var(--scale-6));
+  padding: var(--scale-3-5) var(--scale-6);
+}
+.button--left {
+  justify-content: left;
+}
+.button--right {
+  justify-content: right;
+}
+.button--full-width {
+  width: 100%;
+}
+.button--with-icon {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.button--with-icon span {
+  margin-left: 1.3rem;
+}
+.button .button__loader {
+  display: none;
+}
+.button--loading {
+  position: relative;
+  pointer-events: none;
+}
+.button--loading .button__content {
+  opacity: 0;
+  display: inherit;
+}
+.button--loading .button__loader {
+  position: absolute;
+  display: block;
+  animation: spin 500ms infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.button--outline {
+  color: hsl(var(--secondary-foreground));
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--input), 1);
+}
+.button--outline:not(:disabled):not(.disabled):hover, .button--outline:not(:disabled):not(.disabled):active {
+  background: hsl(var(--input), 0.8);
+}
+.button--primary {
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary), 1);
+}
+.button--primary:not(:disabled):not(.disabled):hover, .button--primary:not(:disabled):not(.disabled):active {
+  background: hsl(var(--primary), 0.9);
+}
+.button--secondary {
+  color: hsl(var(--secondary-foreground));
+  background: hsl(var(--secondary), 1);
+}
+.button--secondary:not(:disabled):not(.disabled):hover, .button--secondary:not(:disabled):not(.disabled):active {
+  background: hsl(var(--secondary), 0.8);
+}
+.button--ghost {
+  color: hsl(var(--secondary-foreground));
+  background: hsl(var(--background), 1);
+  box-shadow: none;
+}
+.button--ghost:not(:disabled):not(.disabled):hover, .button--ghost:not(:disabled):not(.disabled):active {
+  background: hsl(var(--secondary), 0.8);
+}
+.button--success {
+  color: hsl(var(--success-foreground));
+  background: hsl(var(--success), 1);
+}
+.button--success:not(:disabled):not(.disabled):hover, .button--success:not(:disabled):not(.disabled):active {
+  background: hsl(var(--success), 0.9);
+}
+.button--destructive {
+  color: hsl(var(--destructive-foreground));
+  background: hsl(var(--destructive), 1);
+}
+.button--destructive:not(:disabled):not(.disabled):hover, .button--destructive:not(:disabled):not(.disabled):active {
+  background: hsl(var(--destructive), 0.9);
+}
+.button--link {
+  background: transparent;
+  padding: 0;
+  color: hsl(var(--foreground));
+  border-radius: 0;
+  box-shadow: none;
+}
+.button--link:not(:disabled):not(.disabled):hover, .button--link:not(:disabled):not(.disabled):active {
+  color: hsl(var(--muted-foreground));
+}
+.button--symmetrical {
+  padding: var(--scale-3);
+}
+.button--control {
+  background: var(--color-dark-700);
+  color: var(--color-light);
+  width: var(--scale-9);
+  height: var(--scale-9);
+  border-radius: var(--scale-9);
+  padding: 0;
+  overflow: hidden;
+}
+.button--control.button--sm {
+  width: var(--scale-8);
+  height: var(--scale-8);
+}
+.button--control:not(:disabled):not(.disabled):hover, .button--control:not(:disabled):not(.disabled):active {
+  background: var(--color-dark);
+}
+.button--switch {
+  width: 48px;
+  height: 28px;
+  border-radius: 9999px;
+  background: hsl(var(--background));
+  overflow: hidden;
+  border: 1px solid hsl(var(--input), 1);
+}
+.button--switch span {
+  position: absolute;
+  left: 0;
+  width: 21px;
+  height: 21px;
+  border-radius: 9999px;
+  background: hsl(var(--primary), 1);
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(4px);
+}
+.button--switch[data-state=checked] {
+  background: hsl(var(--primary), 1);
+}
+.button--switch[data-state=checked] span {
+  transform: translateX(22px);
+  background: hsl(var(--background));
+}
+.button--area {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background), 1);
+  box-shadow: none;
+  border: 1px dashed hsl(var(--input), 1);
+  border-radius: var(--scale-1);
+  width: 100%;
+}
+.button--area:not(:disabled):not(.disabled):hover, .button--area:not(:disabled):not(.disabled):active {
+  background: hsl(var(--secondary), 0.8);
+}
+
+/*# sourceMappingURL=buttons.css.map */

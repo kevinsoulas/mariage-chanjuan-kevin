@@ -1,0 +1,46 @@
+.accordion {
+    &__item {
+        background: var(--color-dark-100);
+        border-radius: var(--scale-2);
+        cursor: pointer;
+        text-align: unset;
+        color: var(--color-dark);
+        -webkit-transition: background var(--duration-fast) ease-out;
+        -moz-transition: background var(--duration-fast) ease-out;
+        -o-transition: background var(--duration-fast) ease-out;
+        transition: background var(--duration-fast) ease-out;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        padding-right: var(--mc-scale-6);
+        border-radius: var(--scale-2);
+        cursor: pointer;
+        border: none;
+        user-select: none; // prevents content being selected when double clicking
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        transform: rotateX(0deg);
+        transition: transform 200ms ease;
+    }
+
+    &__button[aria-expanded='true'],
+    &__button[aria-selected='true'] {
+        .accordion__icon {
+            transform: rotateX(180deg);
+        }
+    }
+
+    &__button[aria-expanded='false'],
+    &__button[aria-selected='false'] {
+        &:hover {
+            background: var(--color-dark-200);
+        }
+    }
+}

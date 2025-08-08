@@ -1,0 +1,77 @@
+@import "variables";
+
+.m-auto {
+  margin: auto;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+
+    .m#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .mx#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-left: var(--scale-#{$i}) !important;
+          margin-right: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .my#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-top: var(--scale-#{$i}) !important;
+          margin-bottom: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .mt#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-top: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .mr#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-right: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .mb#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-bottom: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+
+    .ml#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          margin-left: var(--scale-#{$i}) !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+$font-path: "/style/font";
+$fonts: "Geist", "GeistMono", "Cherolina", "LavishlyYours", "Cormorant";
+
+$font-weights: (
+  // "Thin": 100,
+  // "UltraLight": 200,
+  // "Light": 300,
+  "Regular": 400,
+  // "Medium": 500,
+  // "SemiBold": 600,
+  // "Bold": 700,
+  // "UltraBlack": 800,
+  // "Black": 900,
+);
+
+@function font-face-src($font, $weight-name, $style: normal) {
+  @return url("../../#{$font-path}/#{$font}/statics-ttf/#{$font}-#{$weight-name}.ttf")
+    format("opentype");
+}
+
+@each $font in $fonts {
+  @each $weight-name, $weight-value in $font-weights {
+    @font-face {
+      font-family: $font;
+      src: font-face-src($font, $weight-name);
+      font-weight: $weight-value;
+      font-style: normal;
+    }
+  }
+}

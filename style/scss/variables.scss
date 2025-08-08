@@ -1,0 +1,51 @@
+// Breakpoints
+$bp-xs: 0;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 960px;
+$bp-xl: 1200px;
+$bp-2xl: 1440px;
+
+$grid-breakpoints: (
+  xs: $bp-xs,
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+  2xl: $bp-2xl,
+);
+
+// Spacing
+$scale-begin: 0;
+$scale-end: 16;
+$scale-modifier-begin: 11;
+$scale-modifier-end: 15;
+
+// Container max width
+$cmw-xs: 864px; // 3*256+48*2
+$cmw-sm: 1120px; // 4*256+48*2
+$cmw-md: 1376px; // 5*256+48*2
+$cmw-lg: 1632px; // 6*256+48*2
+$cmw-xl: 1888px; // 7*256+48*2
+$cmw-2xl: 2144px; // 8*256+48*2
+
+$grid-container-max-width: (
+  xs: $cmw-xs,
+  sm: $cmw-sm,
+  md: $cmw-md,
+  lg: $cmw-lg,
+  xl: $cmw-xl,
+  2xl: $cmw-2xl,
+);
+
+// Color grading
+$color-grading: (
+  100: "11",
+  200: "22",
+  300: "55",
+  400: "77",
+  500: "99",
+  600: "aa",
+  700: "cc",
+  800: "ee",
+);

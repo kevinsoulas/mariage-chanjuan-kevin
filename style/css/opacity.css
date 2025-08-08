@@ -1,0 +1,144 @@
+.opacity--1 {
+  opacity: 1 !important;
+}
+.opacity--hinted {
+  opacity: 0.8 !important;
+}
+.opacity--muted {
+  opacity: 0.6 !important;
+}
+.opacity--silenced {
+  opacity: 0.3 !important;
+}
+.opacity--0 {
+  opacity: 0 !important;
+}
+
+@media (min-width: 0) {
+  .opacity--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity--0 {
+    opacity: 0 !important;
+  }
+}
+@media (min-width: 576px) {
+  .opacity-sm--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity-sm--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity-sm--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity-sm--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity-sm--0 {
+    opacity: 0 !important;
+  }
+}
+@media (min-width: 768px) {
+  .opacity-md--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity-md--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity-md--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity-md--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity-md--0 {
+    opacity: 0 !important;
+  }
+}
+@media (min-width: 960px) {
+  .opacity-lg--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity-lg--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity-lg--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity-lg--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity-lg--0 {
+    opacity: 0 !important;
+  }
+}
+@media (min-width: 1200px) {
+  .opacity-xl--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity-xl--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity-xl--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity-xl--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity-xl--0 {
+    opacity: 0 !important;
+  }
+}
+@media (min-width: 1440px) {
+  .opacity-2xl--1 {
+    opacity: 1 !important;
+  }
+
+  .opacity-2xl--hinted {
+    opacity: 0.8 !important;
+  }
+
+  .opacity-2xl--muted {
+    opacity: 0.6 !important;
+  }
+
+  .opacity-2xl--silenced {
+    opacity: 0.3 !important;
+  }
+
+  .opacity-2xl--0 {
+    opacity: 0 !important;
+  }
+}
+
+/*# sourceMappingURL=opacity.css.map */

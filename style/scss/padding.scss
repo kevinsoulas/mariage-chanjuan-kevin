@@ -1,0 +1,65 @@
+@import "variables";
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+        $infix: if($breakpoint=="xs", "", "-#{$breakpoint}");
+
+        .p#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .px#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-left: var(--scale-#{$i}) !important;
+                    padding-right: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .py#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-top: var(--scale-#{$i}) !important;
+                    padding-bottom: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .pt#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-top: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .pr#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-right: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .pb#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-bottom: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+
+        .pl#{$infix} {
+            @for $i from $scale-begin through $scale-end {
+                &-#{$i} {
+                    padding-left: var(--scale-#{$i}) !important;
+                }
+            }
+        }
+    }
+}

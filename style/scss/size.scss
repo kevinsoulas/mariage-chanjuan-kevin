@@ -1,0 +1,124 @@
+@import "variables";
+
+.w-full {
+  width: 100%;
+}
+.w-max {
+  width: max-content;
+}
+.h-full {
+  height: 100%;
+}
+.h-max {
+  height: max-content;
+}
+
+.col {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    &-#{$breakpoint} {
+      max-width: map-get($grid-breakpoints, $breakpoint) !important;
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    $infix: if($breakpoint== "xs", "", "-#{$breakpoint}");
+
+    .w#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          width: calc(var(--scale-#{$i}) * 10) !important;
+
+          // @for $j from $scale-modifier-begin through $scale-modifier-end {
+          //   &-#{$j} {
+          //     width: calc(
+          //       (var(--scale-#{$i}) + var(--scale-#{$j})) * 10
+          //     ) !important;
+          //   }
+          // }
+        }
+      }
+    }
+
+    .mw#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          max-width: calc(var(--scale-#{$i}) * 10) !important;
+
+          // @for $j from $scale-modifier-begin through $scale-modifier-end {
+          //   &-#{$j} {
+          //     max-width: calc(
+          //       (var(--scale-#{$i}) + var(--scale-#{$j})) * 10
+          //     ) !important;
+          //   }
+          // }
+        }
+      }
+    }
+
+    .w#{$infix}-16 {
+      width: 16.666% !important;
+    }
+
+    .w#{$infix}-20 {
+      width: 20% !important;
+    }
+
+    .w#{$infix}-25 {
+      width: 25% !important;
+    }
+
+    .w#{$infix}-33 {
+      width: 33.333% !important;
+    }
+
+    .w#{$infix}-50 {
+      width: 50% !important;
+    }
+
+    .vw#{$infix}-100 {
+      width: 100vw !important;
+    }
+
+    .h#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          height: calc(var(--scale-#{$i}) * 10) !important;
+
+          // @for $j from $scale-modifier-begin through $scale-modifier-end {
+          //   &-#{$j} {
+          //     height: calc(
+          //       (var(--scale-#{$i}) + var(--scale-#{$j})) * 10
+          //     ) !important;
+          //   }
+          // }
+        }
+      }
+    }
+
+    .mh#{$infix} {
+      @for $i from $scale-begin through $scale-end {
+        &-#{$i} {
+          max-height: calc(var(--scale-#{$i}) * 10) !important;
+
+          // @for $j from $scale-modifier-begin through $scale-modifier-end {
+          //   &-#{$j} {
+          //     max-height: calc(
+          //       (var(--scale-#{$i}) + var(--scale-#{$j})) * 10
+          //     ) !important;
+          //   }
+          // }
+        }
+      }
+    }
+
+    .h#{$infix}-50 {
+      height: 50% !important;
+    }
+
+    .vh#{$infix}-100 {
+      height: 100vh !important;
+    }
+  }
+}

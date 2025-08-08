@@ -1,0 +1,21 @@
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes loading-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.width-transition {
+  transition: width 300ms ease-in-out;
+}
+
+/*# sourceMappingURL=animations.css.map */

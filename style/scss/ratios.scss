@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+// Creates container with aspect
+// ratio for the many types of tiles on our site
+// that use text or element overlays over an image
+// that covers the background
+
+@mixin aspect-ratio($width, $height) {
+  &:before {
+    display: block;
+    width: 100%;
+    padding-top: $height/$width*100%;
+    content: '';
+    pointer-events: none;
+  }
+}
