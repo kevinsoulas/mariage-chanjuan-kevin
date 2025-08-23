@@ -52,26 +52,104 @@
         class="p-8 d-flex flex-column flex-lg-row align-items-center justify-content-center gap-2 gap-lg-10"
       >
         <div
+          class="d-flex d-lg-none flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('menu')"
+            class="text-lg text--bold text-link"
+            >Menu</a
+          ><span class="text-sm">菜单</span>
+        </div>
+        <div
+          class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('home')"
+            class="text-lg text--bold text-link"
+            >Accueil</a
+          ><span class="text-sm">主页</span>
+        </div>
+        <div
+          class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('rdv')"
+            class="text-lg text--bold text-link"
+            >Rendez-vous</a
+          ><span class="text-sm">约会</span>
+        </div>
+        <div
+          class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('confirm')"
+            class="text-lg text--bold text-link"
+            >Confirmer 💌</a
+          ><span class="text-sm">确认</span>
+        </div>
+        <div
+          class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('story')"
+            class="text-lg text--bold text-link"
+            >Histoire</a
+          ><span class="text-sm">故事</span>
+        </div>
+      </div>
+      <div
+        id="menu"
+        class="page container-md text--center flex-column align-items-center justify-content-center flex-1 gap-6 d-none"
+      >
+        <div
           class="d-flex flex-column align-items-center justify-content-center gap-2"
         >
-          <a href="index.html" class="text-lg text--bold text-link">Accueil</a
+          <a
+            role="button"
+            onclick="page('home')"
+            class="text-lg text--bold text-link"
+            >Accueil</a
           ><span class="text-sm">主页</span>
         </div>
         <div
           class="d-flex flex-column align-items-center justify-content-center gap-2"
         >
-          <a href="rdv.html" class="text-lg text--bold text-link">Rendez-vous</a
+          <a
+            role="button"
+            onclick="page('rdv')"
+            class="text-lg text--bold text-link"
+            >Rendez-vous</a
           ><span class="text-sm">约会</span>
         </div>
         <div
           class="d-flex flex-column align-items-center justify-content-center gap-2"
         >
-          <a href="story.html" class="text-lg text--bold text-link">Histoire</a
+          <a
+            role="button"
+            onclick="page('confirm')"
+            class="text-lg text--bold text-link"
+            >Confirmer 💌</a
+          ><span class="text-sm">确认</span>
+        </div>
+        <div
+          class="d-flex flex-column align-items-center justify-content-center gap-2"
+        >
+          <a
+            role="button"
+            onclick="page('story')"
+            class="text-lg text--bold text-link"
+            >Histoire</a
           ><span class="text-sm">故事</span>
         </div>
       </div>
       <div
-        class="container-md text--center d-flex flex-column align-items-center justify-content-center flex-1 gap-6"
+        id="home"
+        class="page container-md text--center d-flex flex-column align-items-center justify-content-center flex-1 gap-6"
       >
         <div class="d-flex flex-column gap-2">
           <p class="text-3xl text-lg-7xl text-brand text--center">
@@ -80,9 +158,126 @@
           <p class="text-xl text--center">婵娟 & 凯文</p>
         </div>
       </div>
+      <div
+        id="rdv"
+        class="page container-md text--center flex-column align-items-center justify-content-center flex-1 gap-6 d-none"
+      >
+        <div class="d-flex flex-column gap-2">
+          <p class="text-lg text--bold">Rendez-vous le 20 décembre 2025</p>
+          <p class="text-sm">二零二五年十二月二十日见面</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <p class="text-lg text--bold">
+            Mariage civil à la mairie d'Asnières-sur-Seine à 10h30
+          </p>
+          <p class="text-sm">上午十点三十分在阿斯涅尔市政厅举行民事婚礼</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <p class="text-lg text--bold">
+            Cérémonie et dîner au restaurant Blossom (Paris 8e) à 18h jusqu'à
+            23h
+          </p>
+          <p class="text-sm">
+            晚上六点至十一点在Blossom餐厅（巴黎八区）举行仪式和晚宴
+          </p>
+        </div>
+        <a
+          role="button"
+          onclick="page('confirm')"
+          class="button button--outline px-7"
+        >
+          Confirmer / 确认
+        </a>
+      </div>
+      <div
+        id="confirm"
+        class="page container-md text--center flex-column align-items-center justify-content-center flex-1 gap-6 d-none"
+      >
+        <div class="m-auto mw-8 d-flex flex-column gap-4">
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold">
+              Merci de confirmer votre présence 💌
+            </p>
+            <p class="text-sm">请确认您的出席</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-md text--bold">
+              Nous préparons un menu en fonction des régimes alimentaires de nos
+              invités. Merci d'indiquer vos restrictions ou allergies.
+            </p>
+            <p class="text-xs">
+              我们将根据客人的饮食习惯准备菜单。请说明您的饮食限制或过敏。
+            </p>
+          </div>
+          <form
+            id="confirmForm"
+            class="w-full d-flex flex-column"
+            onsubmit="handleSubmit(event)"
+          >
+            <div class="w-full d-flex flex-column gap-2">
+              <input
+                type="text"
+                id="name"
+                class="w-full input"
+                placeholder="Votre nom / 您的名字"
+                required
+              />
+              <input
+                id="indications"
+                class="w-full textarea"
+                rows="4"
+                placeholder="Votre régime alimentaire / 您的饮食要求"
+              />
+              <button type="submit" class="w-full button button--primary px-7">
+                Envoyer / 发送
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div
+        id="story"
+        class="page container-md text--center flex-column align-items-center justify-content-center flex-1 gap-6 d-none"
+      >
+        <div class="d-flex flex-column gap-6">
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">
+              Un soir d'hiver à Paris
+            </p>
+            <p class="text-sm text--center">巴黎的一个冬夜</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">
+              Leurs regards se sont croisés
+            </p>
+            <p class="text-sm text--center">四目相对</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">Entre France et Chine</p>
+            <p class="text-sm text--center">在法国和中国之间</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">
+              Leurs cœurs se sont trouvés
+            </p>
+            <p class="text-sm text--center">他们的心相遇了</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">Et depuis ce jour</p>
+            <p class="text-sm text--center">从那天起</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p class="text-lg text--bold text--center">
+              Leur amour grandit toujours
+            </p>
+            <p class="text-sm text--center">他们的爱情与日俱增</p>
+          </div>
+        </div>
+      </div>
       <div class="text--center p-8">
-        <p class="text-xl text--bold">20 • 12 • 2025</p>
-        <p class="text-sm">二零二五年十二月二十日</p>
+        <p class="text-lg text-lg-xl text--bold">20 • 12 • 2025</p>
+        <p class="text-xxs text-lg-lg">二零二五年十二月二十日</p>
       </div>
       <div
         id="gradient-bg"
@@ -93,7 +288,7 @@
           width: 100%;
           height: 100vh;
           pointer-events: none;
-          z-index: 0;
+          z-index: -2;
           opacity: 0.7;
         "
       ></div>
@@ -106,7 +301,7 @@
           width: 100%;
           height: 100vh;
           pointer-events: none;
-          z-index: 1;
+          z-index: -1;
           opacity: 0.05;
         "
       ></div>
@@ -114,3 +309,64 @@
   </body>
   <script src="js/background.js"></script>
 </html>
+
+<script>
+  async function page(page) {
+    // Fade out current pages
+    const currentPages = document.querySelectorAll(".page:not(.d-none)");
+    await Promise.all(
+      [...currentPages].map(async (p) => {
+        p.style.opacity = "0";
+        await new Promise((r) => setTimeout(r, 300)); // Wait for fade
+        p.classList.add("d-none");
+        p.classList.remove("d-flex");
+        p.style.opacity = "1";
+      })
+    );
+
+    // Fade in new page
+    const newPage = document.getElementById(page);
+    newPage.classList.remove("d-none");
+    newPage.classList.add("d-flex");
+    newPage.style.opacity = "0";
+    await new Promise((r) => setTimeout(r, 50)); // Small delay for display to take effect
+    newPage.style.opacity = "1";
+    newPage.style.transition = "opacity 300ms";
+
+    // Handle form submission
+    if (page === "contact") {
+      const form = document.getElementById("contact-form");
+      if (form) {
+        form.onsubmit = (e) => {
+          e.preventDefault();
+          const subject = encodeURIComponent(form.subject.value);
+          const message = encodeURIComponent(form.message.value);
+          window.location.href = `mailto:contact@example.com?subject=${subject}&body=${message}`;
+        };
+      }
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const indications = document.getElementById("indications").value;
+
+    if (!name || !indications) {
+      alert("Veuillez remplir tous les champs / 请填写所有字段");
+      return;
+    }
+
+    // Create email content
+    const subject = encodeURIComponent(
+      "Confirmation de présence - Mariage Chanjuan & Kévin"
+    );
+    const body = encodeURIComponent(
+      `Nom / 姓名: ${name}\n\nRégime alimentaire / 饮食要求: ${indications}\n\nJe confirme ma présence au mariage de Chanjuan et Kévin le 20 décembre 2025.\n我确认参加2025年12月20日婵娟和凯文的婚礼。`
+    );
+
+    // Open email client
+    window.location.href = `mailto:kevinsoulas@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>

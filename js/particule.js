@@ -1,3 +1,6 @@
+// Global speed control
+window.particleSpeed = 1.5;
+
 // Attendons que votre site web soit prêt
 document.addEventListener("DOMContentLoaded", function () {
   // Création du containeur de script qui ajouter Particles.JS à votre site
@@ -26,13 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
     particlesJS("snow-js", {
       particles: {
         number: {
-          value: 32,
+          value: 8,
           density: {
             enable: true,
           },
         },
         color: {
-          value: "#FF69B4", // Couleur rose fixe
+          value: "#FF4B8B", // Couleur rose-rouge pétale
         },
         shape: {
           type: "circle",
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         move: {
           enable: true,
-          speed: 1.5,
+          speed: window.particleSpeed,
           direction: "bottom",
           random: false,
           straight: false,

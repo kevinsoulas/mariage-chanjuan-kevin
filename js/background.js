@@ -1,7 +1,7 @@
 (function () {
   // Gradient animation
   const bg = document.getElementById("gradient-bg");
-  const colors = [
+  window.colors = [
     [179, 217, 255], // Light Blue
     [179, 255, 255], // Light Cyan
     [217, 255, 242], // Light Mint
@@ -9,7 +9,7 @@
   ];
 
   // Start with random color index
-  let t = Math.random() * colors.length;
+  window.t = Math.random() * colors.length;
 
   function lerp(start, end, t) {
     return start * (1 - t) + end * t;
@@ -77,6 +77,6 @@
     requestAnimationFrame(updateNoise);
   }
 
-  updateGradient();
-  updateNoise();
+  // updateGradient();
+  // updateNoise();
 })();
