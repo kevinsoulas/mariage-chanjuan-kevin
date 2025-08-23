@@ -79,8 +79,8 @@
             role="button"
             onclick="page('rdv')"
             class="text-lg text--bold text-link"
-            >Rendez-vous</a
-          ><span class="text-sm">约会</span>
+            >Programme</a
+          ><span class="text-sm">婚礼日程</span>
         </div>
         <div
           class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
@@ -90,7 +90,7 @@
             onclick="page('confirm')"
             class="text-lg text--bold text-link"
             >Confirmer 💌</a
-          ><span class="text-sm">确认</span>
+          ><span class="text-sm">确认 & 留言</span>
         </div>
         <div
           class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
@@ -124,8 +124,8 @@
             role="button"
             onclick="page('rdv')"
             class="text-lg text--bold text-link"
-            >Rendez-vous</a
-          ><span class="text-sm">约会</span>
+            >Programme</a
+          ><span class="text-sm">婚礼日程</span>
         </div>
         <div
           class="d-flex flex-column align-items-center justify-content-center gap-2"
@@ -135,7 +135,7 @@
             onclick="page('confirm')"
             class="text-lg text--bold text-link"
             >Confirmer 💌</a
-          ><span class="text-sm">确认</span>
+          ><span class="text-sm">确认 & 留言</span>
         </div>
         <div
           class="d-flex flex-column align-items-center justify-content-center gap-2"
@@ -152,7 +152,7 @@
         id="home"
         class="page container-md text--center d-flex flex-column align-items-center justify-content-center flex-1 gap-6"
       >
-        <div class="d-flex flex-column gap-2">
+        <div class="d-flex flex-column gap-4">
           <p class="text-3xl text-lg-7xl text-brand text--center">
             Chanjuan & Kévin
           </p>
@@ -164,30 +164,33 @@
         class="page container-md text--center flex-column align-items-center justify-content-center flex-1 gap-6 d-none"
       >
         <div class="d-flex flex-column gap-2">
-          <p class="text-lg text--bold">Rendez-vous le 20 décembre 2025</p>
-          <p class="text-sm">二零二五年十二月二十日见面</p>
+          <p class="text-lg text--bold">13 h 15 :</p>
+          <p class="text-lg text--bold">
+            RDV devant la marie d'Asnières-sur-Seine
+          </p>
+          <p class="text-sm">市政厅欢聚</p>
         </div>
         <div class="d-flex flex-column gap-2">
-          <p class="text-lg text--bold">
-            Mariage civil à la mairie d'Asnières-sur-Seine à 10h30
-          </p>
-          <p class="text-sm">上午十点三十分在阿斯涅尔市政厅举行民事婚礼</p>
+          <p class="text-lg text--bold">13 h 30 :</p>
+          <p class="text-lg text--bold">Cérémonie civil</p>
+          <p class="text-sm">民事婚礼仪式</p>
         </div>
         <div class="d-flex flex-column gap-2">
-          <p class="text-lg text--bold">
-            Cérémonie et dîner au restaurant Blossom (Paris 8e) à 18h jusqu'à
-            23h
-          </p>
-          <p class="text-sm">
-            晚上六点至十一点在Blossom餐厅（巴黎八区）举行仪式和晚宴
-          </p>
+          <p class="text-lg text--bold">17 h 30 :</p>
+          <p class="text-lg text--bold">RDV devant Maison Blossom</p>
+          <p class="text-sm">餐厅欢聚</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <p class="text-lg text--bold">18h - 23h :</p>
+          <p class="text-lg text--bold">Cérémonie laïque & dîner</p>
+          <p class="text-sm">婚礼仪式 & 晚宴</p>
         </div>
         <a
           role="button"
           onclick="page('confirm')"
-          class="button button--outline px-7"
+          class="button button--primary px-7"
         >
-          Confirmer / 确认
+          Confirmer 💌 / 确认 & 留言
         </a>
       </div>
       <div
@@ -203,34 +206,38 @@
           </div>
           <div class="d-flex flex-column gap-2">
             <p class="text-md text--bold">
-              Nous préparons un menu en fonction des régimes alimentaires de nos
-              invités. Merci d'indiquer vos restrictions ou allergies.
+              Chers invités, nous préparons un menu unique en fonction de vos
+              régimes alimentaires. N’hésitez pas à nous indiquer vos
+              restrictions ou allergies alimentaires.
             </p>
             <p class="text-xs">
-              我们将根据客人的饮食习惯准备菜单。请说明您的饮食限制或过敏。
+              亲爱的来宾们，我们将根据你们的饮食习惯准备一份独一无二菜单。
+              如果有饮食禁忌或食物过敏的情况，请告知我们。
             </p>
           </div>
           <form
             id="confirmForm"
-            class="w-full d-flex flex-column"
+            class="w-full mw-7 d-flex flex-column"
             onsubmit="handleSubmit(event)"
           >
-            <div class="w-full d-flex flex-column gap-2">
-              <input
-                type="text"
-                id="name"
-                class="w-full input"
-                placeholder="Votre nom / 您的名字"
-                required
-              />
-              <input
-                id="indications"
-                class="w-full textarea"
-                rows="4"
-                placeholder="Votre régime alimentaire / 您的饮食要求"
-              />
+            <div class="w-full d-flex flex-column gap-4">
+              <div class="w-full d-flex flex-column gap-2">
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full input"
+                  placeholder="Votre nom / 您的名字"
+                  required
+                />
+                <input
+                  id="indications"
+                  class="w-full textarea"
+                  rows="4"
+                  placeholder="Vos restrictions alimentaires / 您的饮食忌口"
+                />
+              </div>
               <button type="submit" class="w-full button button--primary px-7">
-                Envoyer / 发送
+                Envoyer / 提交
               </button>
             </div>
           </form>
@@ -252,17 +259,17 @@
             <p class="text-lg text--bold text--center">
               Leurs regards se sont croisés
             </p>
-            <p class="text-sm text--center">四目相对</p>
+            <p class="text-sm text--center">他们的目光交汇</p>
           </div>
           <div class="d-flex flex-column gap-2">
             <p class="text-lg text--bold text--center">Entre France et Chine</p>
-            <p class="text-sm text--center">在法国和中国之间</p>
+            <p class="text-sm text--center">跨越中法之间</p>
           </div>
           <div class="d-flex flex-column gap-2">
             <p class="text-lg text--bold text--center">
               Leurs cœurs se sont trouvés
             </p>
-            <p class="text-sm text--center">他们的心相遇了</p>
+            <p class="text-sm text--center">两颗心找到了彼此</p>
           </div>
           <div class="d-flex flex-column gap-2">
             <p class="text-lg text--bold text--center">Et depuis ce jour</p>
@@ -364,7 +371,7 @@
       "Confirmation de présence - Mariage Chanjuan & Kévin"
     );
     const body = encodeURIComponent(
-      `Nom / 姓名: ${name}\n\nRégime alimentaire / 饮食要求: ${indications}\n\nJe confirme ma présence au mariage de Chanjuan et Kévin le 20 décembre 2025.\n我确认参加2025年12月20日婵娟和凯文的婚礼。`
+      `Nom / 姓名: ${name}\n\nRestrictions alimentaires / 饮食忌口: ${indications}\n\nJe confirme ma présence au mariage de Chanjuan et Kévin le 20 décembre 2025.\n我确认参加2025年12月20日婵娟和凯文的婚礼。`
     );
 
     // Open email client
