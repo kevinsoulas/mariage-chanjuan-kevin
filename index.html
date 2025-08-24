@@ -318,22 +318,30 @@
           >
             <div class="w-full d-flex flex-column gap-4">
               <div class="w-full d-flex flex-column gap-2">
-                <input
-                  type="text"
-                  id="name"
-                  class="w-full input"
-                  placeholder="Votre nom / 您的名字"
-                  required
-                />
-                <input
-                  id="indications"
-                  class="w-full textarea"
-                  rows="4"
-                  placeholder="Vos restrictions alimentaires / 您的饮食忌口"
-                />
+                <div class="w-full d-flex flex-column gap-1 align-items-start">
+                  <p class="text-xs text--bold">Nom / 的名字</p>
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full input"
+                    placeholder="Nom / 的名字"
+                    required
+                  />
+                </div>
+                <div class="w-full d-flex flex-column gap-1 align-items-start">
+                  <p class="text-xs text--bold">
+                    Restrictions alimentaires / 的饮食忌口
+                  </p>
+                  <input
+                    id="indications"
+                    class="w-full textarea"
+                    rows="4"
+                    placeholder="Restrictions alimentaires / 的饮食忌口"
+                  />
+                </div>
               </div>
               <button type="submit" class="w-full button button--primary px-7">
-                Envoyer / 提交
+                Suivant / 下一步
               </button>
             </div>
           </form>
@@ -479,7 +487,7 @@
     const name = document.getElementById("name").value;
     const indications = document.getElementById("indications").value;
 
-    if (!name || !indications) {
+    if (!name) {
       alert("Veuillez remplir tous les champs / 请填写所有字段");
       return;
     }
