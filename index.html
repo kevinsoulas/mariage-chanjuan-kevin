@@ -341,11 +341,8 @@
                 Confirmer / 确认
               </button>
             </div>
-            <div
-              id="result"
-              class="w-full d-flex flex-column gap-2 text-md text--center"
-            ></div>
           </form>
+          <div id="result" class="text-sm"></div>
         </div>
       </div>
 
@@ -355,34 +352,17 @@
 
         document
           .getElementById("confirmForm")
-          .addEventListener("submit", async (e) => {
+          .addEventListener("submit", (e) => {
             e.preventDefault();
+            const formData = new FormData(e.target);
 
-            const form = e.target;
-            const data = {
-              name: form.name.value,
-              indications: form.indications.value,
-            };
-
-            console.log(data);
-
-            try {
-              const response = await fetch(scriptURL, {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" },
-              });
-
-              const result = await response.json();
-
-              console.log(result);
-              document.getElementById("result").textContent =
-                "Merci, votre réponse a été enregistrée ✅ / 已确认";
-              form.reset();
-            } catch (error) {
-              document.getElementById("result").textContent =
-                "Erreur, merci de réessayer ❌ / 错误，请重试";
-            }
+            fetch(scriptURL, { method: "POST", body: formData })
+              .then((res) => res.text())
+              .then(() => {
+                alert("Réponse envoyée ✅");
+                e.target.reset();
+              })
+              .catch((err) => alert("Erreur ❌ " + err));
           });
       </script>
 
