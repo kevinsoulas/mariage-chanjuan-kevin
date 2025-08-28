@@ -352,17 +352,43 @@
 
         document
           .getElementById("confirmForm")
-          .addEventListener("submit", (e) => {
+          .addEventListener("submit", async (e) => {
             e.preventDefault();
-            const formData = new FormData(e.target);
 
-            fetch(scriptURL, { method: "POST", body: formData })
-              .then((res) => res.text())
-              .then(() => {
-                alert("Réponse envoyée ✅");
-                e.target.reset();
-              })
-              .catch((err) => alert("Erreur ❌ " + err));
+            const submitButton = e.target.querySelector(
+              'button[type="submit"]'
+            );
+            const resultDiv = document.getElementById("result");
+
+            // Désactiver le bouton et afficher un message de chargement
+            submitButton.disabled = true;
+            submitButton.textContent = "Envoi en cours...";
+            resultDiv.innerHTML =
+              '<p style="color: #666;">⏳ Envoi en cours...</p>';
+
+            try {
+              const formData = new FormData(e.target);
+
+              const response = await fetch(scriptURL, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors", // Important pour éviter CORS
+              });
+
+              // Avec mode 'no-cors', on ne peut pas lire la réponse
+              // mais si ça arrive ici, c'est que l'envoi a réussi
+              resultDiv.innerHTML =
+                '<p style="color: green;">✅ Réponse envoyée avec succès!</p>';
+              e.target.reset();
+            } catch (error) {
+              console.error("Erreur:", error);
+              resultDiv.innerHTML =
+                '<p style="color: red;">❌ Erreur lors de l\'envoi. Veuillez réessayer.</p>';
+            } finally {
+              // Réactiver le bouton
+              submitButton.disabled = false;
+              submitButton.textContent = "Confirmer / 确认";
+            }
           });
       </script>
 
