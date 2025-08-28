@@ -320,75 +320,59 @@
               如果有饮食忌口或食物过敏的情况，请告知我们。
             </p>
           </div>
-          <form id="confirmForm" class="w-full mw-7 d-flex flex-column">
+          <form
+            id="confirmForm"
+            class="w-full mw-7 d-flex flex-column"
+            action="https://formspree.io/f/mgvlvjje"
+            method="POST"
+          >
             <div class="w-full d-flex flex-column gap-4">
               <div class="w-full d-flex flex-column gap-2">
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   class="w-full input"
                   placeholder="Nom / 的名字"
-                  required
+                  required=""
                 />
                 <input
-                  id="indications"
+                  id="message"
+                  name="message"
                   class="w-full textarea"
                   rows="4"
                   placeholder="Restrictions alimentaires / 饮食忌口或过敏"
                 />
               </div>
               <button type="submit" class="w-full button button--primary px-7">
-                Confirmer / 确认
+                <svg
+                  class="button__loader"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                </svg>
+                <span class="button__content">Confirmer / 确认</span>
               </button>
             </div>
           </form>
-          <div id="result" class="text-sm"></div>
         </div>
       </div>
 
       <script>
-        const scriptURL =
-          "https://script.google.com/macros/s/AKfycbwBN3LtsWkHuyqKo7IrAXuV0gjCISo2GhwLbWcsqrkkK_-Nu8lTaS7vUj92bz_GlSvFxw/exec"; // colle ici l'URL du script déployé
-
         document
           .getElementById("confirmForm")
-          .addEventListener("submit", async (e) => {
-            e.preventDefault();
-
-            const submitButton = e.target.querySelector(
-              'button[type="submit"]'
-            );
-            const resultDiv = document.getElementById("result");
-
-            // Désactiver le bouton et afficher un message de chargement
-            submitButton.disabled = true;
-            submitButton.textContent = "Envoi en cours...";
-            resultDiv.innerHTML =
-              '<p style="color: #666;">⏳ Envoi en cours...</p>';
-
-            try {
-              const formData = new FormData(e.target);
-
-              const response = await fetch(scriptURL, {
-                method: "POST",
-                body: formData,
-                mode: "no-cors", // Important pour éviter CORS
-              });
-
-              // Avec mode 'no-cors', on ne peut pas lire la réponse
-              // mais si ça arrive ici, c'est que l'envoi a réussi
-              resultDiv.innerHTML =
-                '<p style="color: green;">✅ Réponse envoyée avec succès!</p>';
-              e.target.reset();
-            } catch (error) {
-              console.error("Erreur:", error);
-              resultDiv.innerHTML =
-                '<p style="color: red;">❌ Erreur lors de l\'envoi. Veuillez réessayer.</p>';
-            } finally {
-              // Réactiver le bouton
-              submitButton.disabled = false;
-              submitButton.textContent = "Confirmer / 确认";
-            }
+          .addEventListener("submit", function () {
+            document
+              .querySelector('#confirmForm button[type="submit"]')
+              .classList.add("button--loading");
           });
       </script>
 
