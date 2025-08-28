@@ -59,11 +59,21 @@
             role="button"
             onclick="page('menu')"
             class="text-lg text--bold text-link"
-            >Menu</a
-          >
-          <a role="button" onclick="page('menu')" class="text-sm text-link"
-            >菜单</a
-          >
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line></svg
+          ></a>
         </div>
         <div
           class="d-none d-lg-flex flex-column align-items-center justify-content-center gap-2"
@@ -215,7 +225,7 @@
         </div>
         <div class="d-flex flex-column gap-2">
           <p class="text-lg text--bold">13 h 30 :</p>
-          <p class="text-lg text--bold">Cérémonie civil</p>
+          <p class="text-lg text--bold">Cérémonie civile</p>
           <p class="text-sm">民事婚礼仪式</p>
         </div>
         <div class="d-flex flex-column gap-2">
@@ -310,11 +320,7 @@
               如果有饮食忌口或食物过敏的情况，请告知我们。
             </p>
           </div>
-          <form
-            id="confirmForm"
-            class="w-full mw-7 d-flex flex-column"
-            onsubmit="handleSubmit(event)"
-          >
+          <form id="confirmForm" class="w-full mw-7 d-flex flex-column">
             <div class="w-full d-flex flex-column gap-4">
               <div class="w-full d-flex flex-column gap-2">
                 <input
@@ -332,21 +338,53 @@
                 />
               </div>
               <button type="submit" class="w-full button button--primary px-7">
-                Suivant / 下一步
+                Confirmer / 确认
               </button>
             </div>
+            <div
+              id="result"
+              class="w-full d-flex flex-column gap-2 text-md text--center"
+            ></div>
           </form>
-          <div class="d-flex flex-column gap-2" style="color: #ff4b8b">
-            <p class="text-sm text--bold">
-              N'oubliez pas d'envoyer l'email pré-rempli sur la page suivante
-              pour finaliser votre confirmation.
-            </p>
-            <p class="text-xs text--bold">
-              请别忘记在下一页发送预填写的电子邮件以完成您的确认。
-            </p>
-          </div>
         </div>
       </div>
+
+      <script>
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbwBN3LtsWkHuyqKo7IrAXuV0gjCISo2GhwLbWcsqrkkK_-Nu8lTaS7vUj92bz_GlSvFxw/exec"; // colle ici l'URL du script déployé
+
+        document
+          .getElementById("confirmForm")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = {
+              name: form.name.value,
+              indications: form.indications.value,
+            };
+
+            console.log(data);
+
+            try {
+              const response = await fetch(scriptURL, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" },
+              });
+
+              const result = await response.json();
+
+              console.log(result);
+              document.getElementById("result").textContent =
+                "Merci, votre réponse a été enregistrée ✅ / 已确认";
+              form.reset();
+            } catch (error) {
+              document.getElementById("result").textContent =
+                "Erreur, merci de réessayer ❌ / 错误，请重试";
+            }
+          });
+      </script>
 
       <div
         id="story"
@@ -457,41 +495,5 @@
     await new Promise((r) => setTimeout(r, 50)); // Small delay for display to take effect
     newPage.style.opacity = "1";
     newPage.style.transition = "opacity 300ms";
-
-    // Handle form submission
-    if (page === "contact") {
-      const form = document.getElementById("contact-form");
-      if (form) {
-        form.onsubmit = (e) => {
-          e.preventDefault();
-          const subject = encodeURIComponent(form.subject.value);
-          const message = encodeURIComponent(form.message.value);
-          window.location.href = `mailto:contact@example.com?subject=${subject}&body=${message}`;
-        };
-      }
-    }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const indications = document.getElementById("indications").value;
-
-    if (!name) {
-      alert("Veuillez remplir tous les champs / 请填写所有字段");
-      return;
-    }
-
-    // Create email content
-    const subject = encodeURIComponent(
-      "Confirmation de présence - Mariage Chanjuan & Kévin"
-    );
-    const body = encodeURIComponent(
-      `Nom / 姓名: ${name}\n\nRestrictions alimentaires / 饮食忌口/过敏： ${indications}\n\nJe confirme ma présence au mariage de Chanjuan et Kévin le 20 décembre 2025.\n我确认参加2025年12月20日婵娟和凯文的婚礼。`
-    );
-
-    // Open email client
-    window.location.href = `mailto:kevinsoulas@gmail.com?subject=${subject}&body=${body}`;
   }
 </script>
